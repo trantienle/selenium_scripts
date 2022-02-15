@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+    <extension
+          point="org.testng.eclipse.launchConfigurationProvider">
+       <launchConfigurationProvider
+             class="org.testng.eclipse.maven.MavenTestNGLaunchConfigurationProvider"
+             id="org.testng.eclipse.maven.launchConfigurationProvider"
+             name="%org.testng.eclipse.maven.launchConfigurationProvider">
+       </launchConfigurationProvider>
+    </extension>
+    <extension
+          point="org.eclipse.ui.preferencePages">
+       <page
+             category="org.testng.eclipse.ui.preferences.PreferencePage"
+             class="org.testng.eclipse.maven.MavenTestNGPreferencePage"
+             id="org.testng.eclipse.maven.pref"
+             name="%org.testng.eclipse.maven.pref.name">
+       </page>
+    </extension>
+    <extension
+          point="org.eclipse.core.runtime.preferences">
+       <initializer
+             class="org.testng.eclipse.maven.MavenTestNGPreferenceInitializer">
+       </initializer>
+    </extension>
+    <extension
+          point="org.eclipse.ui.propertyPages">
+       <page
+             category="org.testng.eclipse.properties.propertyPage1"
+             class="org.testng.eclipse.maven.MavenTestNGPreferencePage"
+             id="org.testng.eclipse.maven.prop"
+             name="%org.testng.eclipse.maven.pref.name">
+         <filter name="nature" value="org.eclipse.m2e.core.maven2Nature"/>
+         <enabledWhen>
+            <adapt
+                  type="org.eclipse.core.resources.IProject">
+            </adapt>
+         </enabledWhen>
+       </page>
+    </extension>
+
+</plugin>

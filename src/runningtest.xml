@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite parallel="false" name="Suite">
+  <test name="Test">
+	<parameter name = "BROWSE" value = "chrome"/>
+	<parameter name = "URL" value = "https://aspireapp.odoo.com/"/>
+	<parameter name = "USER" value = "user@aspireapp.com"/>
+	<parameter name = "PASS" value = "@sp1r3app"/>
+	<parameter name = "PRODUCT_NAME" value = "Product test 1"/>
+	<parameter name = "INTERNAL_REF" value = "Testing Product"/>
+	<parameter name = "PRODUCT_QUANTITY" value = "12.00"/>
+    <classes>
+      <class name="testscript.testcases"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

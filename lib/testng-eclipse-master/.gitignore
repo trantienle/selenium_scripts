@@ -1,0 +1,10 @@
+build
+test-output
+target/
+.settings/
+
+.vscode/
+
+.DS_Store
+
+.gradle

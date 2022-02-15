@@ -1,0 +1,5 @@
+instructions.configure=\
+ org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:https${#58}//testng.org/testng-p2-update-site,type:0,name:TestNG P2,enabled:true);\
+ org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:https${#58}//testng.org/testng-p2-update-site,type:1,name:TestNG P2,enabled:true);\
+ org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:https${#58}//testng.org/testng-eclipse-update-site,type:0,name:TestNG Eclipse,enabled:true);\
+ org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:https${#58}//testng.org/testng-eclipse-update-site,type:1,name:TestNG Eclipse,enabled:true);

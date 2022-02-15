@@ -1,0 +1,20 @@
+sudo: false
+language: java
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+jdk:
+  - openjdk8
+
+before_install: echo "MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=512m -Djava.net.preferIPv4Stack=true'" > ~/.mavenrc
+
+install: echo "skip 'mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V' step"
+
+script:
+  - mvn -e -U -Dci clean install
+  - if [[ "${TRAVIS_PULL_REQUEST}" == "false" ]] && [[ ${TRAVIS_BRANCH} == "master" ]]; then ./scripts/upload-updatesite; fi

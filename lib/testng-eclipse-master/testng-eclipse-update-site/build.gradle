@@ -1,0 +1,27 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.missedone:gradle-bintray-p2-plugin:1.2.0'
+    }
+}
+
+apply plugin: 'bintray-p2'
+
+defaultTasks 'publishP2Repo'
+
+publishP2Repo {
+    repoOwner = 'testng-team'
+    repoName = System.getenv('BUILD_MODE') == 'release' ? 'testng-eclipse-release' : 'testng-eclipse'
+    compositePackage = ''
+    subCompositeStrategy = 'MICRO'
+    repoDir = new File("target/repository")
+    mainFeatureId = 'org.testng.eclipse'
+    zippedRepoFile = new File("target/org.testng.eclipse.updatesite.zip")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}
